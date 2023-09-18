@@ -73,7 +73,8 @@ namespace Quote
             var exchangeRate = 1;
             var tour = this.GetTour(request, activity.Activity);
             var tourQuotes = new List<TourQuote>();
-            var modalities = activity.Activity.Modalities.Where(w => w.Questions == null || !w.Questions.Any()).ToList();
+            //Cambio de las condiciones de la evaluación
+            var modalities = activity.Activity.Modalities.Where(w => w.Questions != null || w.Questions.Any()).ToList();
             foreach (var modality in modalities)
             {
                 var onlyAdults = this.GetAdultsOnly(modality);
